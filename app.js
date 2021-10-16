@@ -23,7 +23,7 @@ function formatAndSendTweet(event) {
     
     const asset_id = _.get(event, ['asset', 'token_id'],
 
-    if (assetName != null)
+    if(assetName != null)
         const tweetText = `${assetName} BOUGHT FOR ${formattedEthPrice}${ethers.constants.EtherSymbol} ($${Number(formattedUsdPrice).toFixed(2)}) #JUNGLEFREAKS ${openseaLink}`;
     else
          const tweetText = `JUNGLE FREAK #${asset_id} BOUGHT FOR ${formattedEthPrice}${ethers.constants.EtherSymbol} ($${Number(formattedUsdPrice).toFixed(2)}) #JUNGLEFREAKS ${openseaLink}`;
@@ -39,7 +39,7 @@ function formatAndSendTweet(event) {
     // OPTIONAL PREFERENCE - if you want the tweet to include an attached image instead of just text
     const imageUrl = _.get(event, ['asset', 'image_url']);
     
-    if (imageUrl != null)
+    if(imageUrl != null)
         return tweet.tweetWithImage(tweetText, imageUrl);
     else
         return tweet.tweet(tweetText);
