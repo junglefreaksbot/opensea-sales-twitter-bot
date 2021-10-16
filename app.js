@@ -23,6 +23,7 @@ function formatAndSendTweet(event) {
     
     //const asset_id = _.get(event, ['asset', 'token_id']), _.get(event, ['asset_bundle', 'token_id']));;
 
+    //From 27 to 31 is for when the asset name don't have yet the name field compiled
     //if(assetName != null){
     //    const tweetText = `${assetName} BOUGHT FOR ${formattedEthPrice}${ethers.constants.EtherSymbol} ($${Number(formattedUsdPrice).toFixed(2)}) #JUNGLEFREAKS ${openseaLink}`;
     //}else{
@@ -43,11 +44,8 @@ function formatAndSendTweet(event) {
     const imageUrl = _.get(event, ['asset', 'image_url']);
     console.log(imageUrl);
     
-    //if(imageUrl != null){
-    //    return tweet.tweetWithImage(tweetText, imageUrl);}
-    //else{
+    // post reveal, tweet the img with: -> return tweet.tweetWithImage(tweetText, imageUrl);}
         return tweet.tweet(tweetText);
-    //}
 }
 
 // Poll OpenSea every 60 seconds & retrieve all sales for a given collection in either the time since the last sale OR in the last minute
