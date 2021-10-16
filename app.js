@@ -20,9 +20,14 @@ function formatAndSendTweet(event) {
     const formattedUnits = ethers.utils.formatUnits(totalPrice, tokenDecimals);
     const formattedEthPrice = formattedUnits * tokenEthPrice;
     const formattedUsdPrice = formattedUnits * tokenUsdPrice;
+    
+    const asset_id = _.get(event, ['asset', 'token_id'],
 
-    const tweetText = `${assetName} BOUGHT FOR ${formattedEthPrice}${ethers.constants.EtherSymbol} ($${Number(formattedUsdPrice).toFixed(2)}) #JUNGLEFREAKS ${openseaLink}`;
-
+    if (assetName != null)
+        const tweetText = `${assetName} BOUGHT FOR ${formattedEthPrice}${ethers.constants.EtherSymbol} ($${Number(formattedUsdPrice).toFixed(2)}) #JUNGLEFREAKS ${openseaLink}`;
+    else
+         const tweetText = `JUNGLE FREAK #${asset_id} BOUGHT FOR ${formattedEthPrice}${ethers.constants.EtherSymbol} ($${Number(formattedUsdPrice).toFixed(2)}) #JUNGLEFREAKS ${openseaLink}`;
+    
     console.log(tweetText);
 
     // OPTIONAL PREFERENCE - don't tweet out sales below X ETH (default is 1 ETH - change to what you prefer)
@@ -33,9 +38,11 @@ function formatAndSendTweet(event) {
 
     // OPTIONAL PREFERENCE - if you want the tweet to include an attached image instead of just text
     const imageUrl = _.get(event, ['asset', 'image_url']);
-    // return tweet.tweetWithImage(tweetText, imageUrl);
-
-    return tweet.tweet(tweetText);
+    
+    if (imageUrl != null)
+        return tweet.tweetWithImage(tweetText, imageUrl);
+    else
+        return tweet.tweet(tweetText);
 }
 
 // Poll OpenSea every 60 seconds & retrieve all sales for a given collection in either the time since the last sale OR in the last minute
