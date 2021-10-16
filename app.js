@@ -21,7 +21,7 @@ function formatAndSendTweet(event) {
     const formattedEthPrice = formattedUnits * tokenEthPrice;
     const formattedUsdPrice = formattedUnits * tokenUsdPrice;
     
-    const asset_id = _.get(event, ['asset', 'token_id'],
+    const asset_id = _.get(event, ['asset', 'token_id'];
 
     if(assetName != null){
         const tweetText = `${assetName} BOUGHT FOR ${formattedEthPrice}${ethers.constants.EtherSymbol} ($${Number(formattedUsdPrice).toFixed(2)}) #JUNGLEFREAKS ${openseaLink}`;
