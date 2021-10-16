@@ -21,12 +21,12 @@ function formatAndSendTweet(event) {
     const formattedEthPrice = formattedUnits * tokenEthPrice;
     const formattedUsdPrice = formattedUnits * tokenUsdPrice;
     
-    //const asset_id = _.get(event, ['asset', 'token_id']);
+    //const asset_id = _.get(event, ['asset', 'token_id']), _.get(event, ['asset_bundle', 'token_id']));;
 
     //if(assetName != null){
     //    const tweetText = `${assetName} BOUGHT FOR ${formattedEthPrice}${ethers.constants.EtherSymbol} ($${Number(formattedUsdPrice).toFixed(2)}) #JUNGLEFREAKS ${openseaLink}`;
     //}else{
-    //     const tweetText = `JUNGLE FREAK #${asset_id} BOUGHT FOR ${formattedEthPrice}${ethers.constants.EtherSymbol} ($${Number(formattedUsdPrice).toFixed(2)}) #JUNGLEFREAKS ${openseaLink}`;
+    //     const tweetText = `JUNGLE FREAK ${asset_id} BOUGHT FOR ${formattedEthPrice}${ethers.constants.EtherSymbol} ($${Number(formattedUsdPrice).toFixed(2)}) #JUNGLEFREAKS ${openseaLink}`;
     //}
     
     const tweetText = `${assetName} BOUGHT FOR ${formattedEthPrice}${ethers.constants.EtherSymbol} ($${Number(formattedUsdPrice).toFixed(2)}) #JUNGLEFREAKS ${openseaLink}`;
@@ -41,6 +41,7 @@ function formatAndSendTweet(event) {
 
     // OPTIONAL PREFERENCE - if you want the tweet to include an attached image instead of just text
     const imageUrl = _.get(event, ['asset', 'image_url']);
+    console.log(imageUrl);
     
     //if(imageUrl != null){
     //    return tweet.tweetWithImage(tweetText, imageUrl);}
