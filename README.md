@@ -24,8 +24,6 @@ Eth Address: 0xDCA88f66CEc8972D23DE7d5e69c40E087C92132f
 
 - Make sure you are logged in to the Twitter account you want the bot to run on (as the next step will be authorizing the bot to post on your account)
 
-- Install [Twurl](https://github.com/twitter/twurl) and, using your Twitter Developer consumer key & secret, generate the access token & access secret
-
 In the Settings section of your Heroku app you'll see a Config Vars section. Add the following config vars:
 
 - **CONSUMER_KEY** - Your Twitter Developer App's Consumer Key
